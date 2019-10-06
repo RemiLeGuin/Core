@@ -1,0 +1,18 @@
+{
+    "packageDirectories": [
+        {
+            "path": "core",
+            "default": true,
+            "package": "Core",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "46.0",
+    "packageAliases": {
+        "Core": "0Ho3X000000KyjVSAS",
+        "Core@0.1.0-1": "04t3X000001FDQhQAO"
+    }
+}
