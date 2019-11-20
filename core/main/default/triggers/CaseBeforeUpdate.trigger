@@ -1,5 +1,6 @@
 trigger CaseBeforeUpdate on Case (before update) {
-    if (Schema.SObjectType.Case.isUpdateable()) {
+    if (Schema.SObjectType.Case.isUpdateable()
+        || Core_UserUtilities.getUserBypassedObjectRestrictionsById(System.UserInfo.getUserId()).contains('Case (Edit)')) {
         Caller.callHandlers('Case', 'before', 'update');
     }
     else {
