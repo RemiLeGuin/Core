@@ -4,8 +4,8 @@
             "path": "core",
             "default": true,
             "package": "Core",
-            "versionName": "ver 0.2",
-            "versionNumber": "0.2.0.NEXT",
+            "versionName": "ver 0.3",
+            "versionNumber": "0.3.0.NEXT",
             "dependencies": [
                 {
                     "package": "Trigger Dependency Injection (TDI)",
@@ -22,6 +22,7 @@
         "Trigger Dependency Injection (TDI)": "0Ho3X000000KyjQSAS",
         "Core": "0Ho3X000000KyjVSAS",
         "Core@0.1.0-1": "04t3X000001FDQhQAO",
-        "Core@0.2.0-1": "04t3X000001FgljQAC"
+        "Core@0.2.0-1": "04t3X000001FgljQAC",
+        "Core@0.3.0-1": "04t3X000001HaptQAC"
     }
 }

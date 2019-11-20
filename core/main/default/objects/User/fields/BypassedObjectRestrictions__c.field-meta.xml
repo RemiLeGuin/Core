@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BypassedObjectRestrictions__c</fullName>
+    <description>Bypasses object restrictions on the current user&#39;s profile. Useful for site guest users who cannot edit or delete some of the standard objects. Ignores CRUD enforcement in Apex such as Schema.SObjectType.Case.isUpdateable()</description>
+    <externalId>false</externalId>
+    <label>Bypassed Object Restrictions</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account (Read)</fullName>
+                <default>false</default>
+                <label>Account (Read)</label>
+            </value>
+            <value>
+                <fullName>Account (Create)</fullName>
+                <default>false</default>
+                <label>Account (Create)</label>
+            </value>
+            <value>
+                <fullName>Account (Edit)</fullName>
+                <default>false</default>
+                <label>Account (Edit)</label>
+            </value>
+            <value>
+                <fullName>Account (Delete)</fullName>
+                <default>false</default>
+                <label>Account (Delete)</label>
+            </value>
+            <value>
+                <fullName>Case (Read)</fullName>
+                <default>false</default>
+                <label>Case (Read)</label>
+            </value>
+            <value>
+                <fullName>Case (Create)</fullName>
+                <default>false</default>
+                <label>Case (Create)</label>
+            </value>
+            <value>
+                <fullName>Case (Edit)</fullName>
+                <default>false</default>
+                <label>Case (Edit)</label>
+            </value>
+            <value>
+                <fullName>Case (Delete)</fullName>
+                <default>false</default>
+                <label>Case (Delete)</label>
+            </value>
+            <value>
+                <fullName>Contact (Read)</fullName>
+                <default>false</default>
+                <label>Contact (Read)</label>
+            </value>
+            <value>
+                <fullName>Contact (Create)</fullName>
+                <default>false</default>
+                <label>Contact (Create)</label>
+            </value>
+            <value>
+                <fullName>Contact (Edit)</fullName>
+                <default>false</default>
+                <label>Contact (Edit)</label>
+            </value>
+            <value>
+                <fullName>Contact (Delete)</fullName>
+                <default>false</default>
+                <label>Contact (Delete)</label>
+            </value>
+            <value>
+                <fullName>Contract (Read)</fullName>
+                <default>false</default>
+                <label>Contract (Read)</label>
+            </value>
+            <value>
+                <fullName>Contract (Create)</fullName>
+                <default>false</default>
+                <label>Contract (Create)</label>
+            </value>
+            <value>
+                <fullName>Contract (Edit)</fullName>
+                <default>false</default>
+                <label>Contract (Edit)</label>
+            </value>
+            <value>
+                <fullName>Contract (Delete)</fullName>
+                <default>false</default>
+                <label>Contract (Delete)</label>
+            </value>
+            <value>
+                <fullName>Lead (Read)</fullName>
+                <default>false</default>
+                <label>Lead (Read)</label>
+            </value>
+            <value>
+                <fullName>Lead (Create)</fullName>
+                <default>false</default>
+                <label>Lead (Create)</label>
+            </value>
+            <value>
+                <fullName>Lead (Edit)</fullName>
+                <default>false</default>
+                <label>Lead (Edit)</label>
+            </value>
+            <value>
+                <fullName>Lead (Delete)</fullName>
+                <default>false</default>
+                <label>Lead (Delete)</label>
+            </value>
+            <value>
+                <fullName>Opportunity (Read)</fullName>
+                <default>false</default>
+                <label>Opportunity (Read)</label>
+            </value>
+            <value>
+                <fullName>Opportunity (Create)</fullName>
+                <default>false</default>
+                <label>Opportunity (Create)</label>
+            </value>
+            <value>
+                <fullName>Opportunity (Edit)</fullName>
+                <default>false</default>
+                <label>Opportunity (Edit)</label>
+            </value>
+            <value>
+                <fullName>Opportunity (Delete)</fullName>
+                <default>false</default>
+                <label>Opportunity (Delete)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
