@@ -11,7 +11,7 @@ private class Core_UserUtilities_Test {
      */
     @TestSetup
     private static void setup() {
-        Id profileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1][0].Id;
+        Id profileId = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1][0].Id;
 
         User authorizedUser = (User)TDF.createSObject('User', new Map<String,Object> {
             'FirstName' => 'Authorized',
