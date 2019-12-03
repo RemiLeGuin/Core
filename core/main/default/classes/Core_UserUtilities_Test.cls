@@ -5,11 +5,11 @@
  */
 @IsTest
 private class Core_UserUtilities_Test {
-    
+
     /**
-	 * @description Data setup for the test class.
-	 */
-	@TestSetup
+     * @description Data setup for the test class.
+     */
+    @TestSetup
     private static void setup() {
         Id profileId = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1][0].Id;
 
@@ -56,59 +56,59 @@ private class Core_UserUtilities_Test {
             'ProfileId' => profileId
         });
     }
-    
-	/**
-	 * @description Test the getUserBypassedObjectRestrictionsById method when user retrieves bypassed object restrictions on a user.
-	 */
-	@IsTest
-	private static void getUserBypassedObjectRestrictionsById_TestSuccessWithRestrictions() {
+
+    /**
+     * @description Test the getUserBypassedObjectRestrictionsById method when user retrieves bypassed object restrictions on a user.
+     */
+    @IsTest
+    private static void getUserBypassedObjectRestrictionsById_TestSuccessWithRestrictions() {
         User authorizedUser = [SELECT Id FROM User WHERE Username = 'authorizeduser@coreuserutilities.fr' LIMIT 1];
         User userWithRestrictions = [SELECT Id FROM User WHERE Username = 'userwithrestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
-		Test.startTest();
-		System.runAs(authorizedUser) {
+        Test.startTest();
+        System.runAs(authorizedUser) {
             userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithRestrictions.Id);
         }
-		Test.stopTest();
+        Test.stopTest();
 
-		System.assertEquals('Account (Read)', userBypassedObjectRestrictions, 'Wrong or no Bypassed object restrictions retrieved');
-	}
-    
-	/**
-	 * @description Test the getUserBypassedObjectRestrictionsById method when user does not retrieve any bypassed object restrictions on a user.
-	 */
-	@IsTest
-	private static void getUserBypassedObjectRestrictionsById_TestSuccessWithNoRestrictions() {
+        System.assertEquals('Account (Read)', userBypassedObjectRestrictions, 'Wrong or no Bypassed object restrictions retrieved');
+    }
+
+    /**
+     * @description Test the getUserBypassedObjectRestrictionsById method when user does not retrieve any bypassed object restrictions on a user.
+     */
+    @IsTest
+    private static void getUserBypassedObjectRestrictionsById_TestSuccessWithNoRestrictions() {
         User authorizedUser = [SELECT Id FROM User WHERE Username = 'authorizeduser@coreuserutilities.fr' LIMIT 1];
         User userWithNoRestrictions = [SELECT Id FROM User WHERE Username = 'userwithnorestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
-		Test.startTest();
-		System.runAs(authorizedUser) {
+        Test.startTest();
+        System.runAs(authorizedUser) {
             userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithNoRestrictions.Id);
         }
-		Test.stopTest();
+        Test.stopTest();
 
-		System.assertEquals(null, userBypassedObjectRestrictions, 'Bypassed object restrictions retrieved while it should not');
-	}
-    
-	/**
-	 * @description Test the getUserBypassedObjectRestrictionsById method when user cannot access to the BypassedObjectRestrictions__c field on Users.
-	 */
-	@IsTest
-	private static void getUserBypassedObjectRestrictionsById_TestError() {
+        System.assertEquals(null, userBypassedObjectRestrictions, 'Bypassed object restrictions retrieved while it should not');
+    }
+
+    /**
+     * @description Test the getUserBypassedObjectRestrictionsById method when user cannot access to the BypassedObjectRestrictions__c field on Users.
+     */
+    @IsTest
+    private static void getUserBypassedObjectRestrictionsById_TestError() {
         User unauthorizedUser = [SELECT Id FROM User WHERE Username = 'unauthorizeduser@coreuserutilities.fr' LIMIT 1];
         User userWithRestrictions = [SELECT Id FROM User WHERE Username = 'userwithrestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
-		Test.startTest();
-		System.runAs(unauthorizedUser) {
+        Test.startTest();
+        System.runAs(unauthorizedUser) {
             userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithRestrictions.Id);
         }
-		Test.stopTest();
+        Test.stopTest();
 
-		System.assertEquals(null, userBypassedObjectRestrictions, 'Bypassed object restrictions retrieved while it should not');
-	}
+        System.assertEquals(null, userBypassedObjectRestrictions, 'Bypassed object restrictions retrieved while it should not');
+    }
 
 }
