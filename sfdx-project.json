@@ -8,6 +8,9 @@
             "versionNumber": "0.3.0.NEXT",
             "dependencies": [
                 {
+                    "package": "TDF"
+                },
+                {
                     "package": "Trigger Dependency Injection (TDI)",
                     "versionNumber": "1.0.0.LATEST"
                 }
@@ -23,6 +26,10 @@
         "Core": "0Ho3X000000KyjVSAS",
         "Core@0.1.0-1": "04t3X000001FDQhQAO",
         "Core@0.2.0-1": "04t3X000001FgljQAC",
-        "Core@0.3.0-1": "04t3X000001HaptQAC"
+        "Core@0.3.0-1": "04t3X000001HaptQAC",
+        "Core@0.3.0-2": "04t3X000001HapyQAC",
+        "Core@0.3.0-3": "04t3X000001Haq3QAC",
+        "Core@0.3.0-4": "04t3X000001Haq8QAC",
+        "Core@0.3.0-5": "04t3X000001Hb1SQAS"
     }
 }
