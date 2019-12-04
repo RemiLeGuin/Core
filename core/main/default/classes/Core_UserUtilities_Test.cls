@@ -12,48 +12,40 @@ private class Core_UserUtilities_Test {
     @TestSetup
     private static void setup() {
         Id profileId = [SELECT Id FROM Profile WHERE Name = 'Standard User' LIMIT 1][0].Id;
-
-        User authorizedUser = (User)TDF.createSObject('User', new Map<String,Object> {
-            'FirstName' => 'Authorized',
-            'LastName' => 'User',
-            'Alias' => 'authu',
-            'Email' => 'authorizeduser@coreuserutilities.fr',
-            'Username' => 'authorizeduser@coreuserutilities.fr',
-            'CommunityNickname' => 'authorizeduser',
-            'ProfileId' => profileId
-        });
         Id coreUserPermissionId = [SELECT Id FROM PermissionSet WHERE Name = 'Core_User' LIMIT 1][0].Id;
-        insert new PermissionSetAssignment (PermissionSetId = coreUserPermissionId, AssigneeId = authorizedUser.Id);
 
-        User unauthorizedUser = (User)TDF.createSObject('User', new Map<String,Object> {
-            'FirstName' => 'Unauthorized',
-            'LastName' => 'User',
-            'Alias' => 'unauthu',
-            'Email' => 'unauthorizeduser@coreuserutilities.fr',
-            'Username' => 'unauthorizeduser@coreuserutilities.fr',
-            'CommunityNickname' => 'unauthorizeduser',
-            'ProfileId' => profileId
-        });
-
-        User userWithRestrictions = (User)TDF.createSObject('User', new Map<String,Object> {
-            'FirstName' => 'With Restrictions',
-            'LastName' => 'User',
-            'Alias' => 'rest',
-            'Email' => 'userwithrestrictions@coreuserutilities.fr',
-            'Username' => 'userwithrestrictions@coreuserutilities.fr',
-            'CommunityNickname' => 'userwithrestrictions',
+        User authorizedUserWithRestrictions = (User)TDF.createSObject('User', new Map<String,Object> {
+            'FirstName' => 'Authorized User',
+            'LastName' => 'With Restrictions',
+            'Alias' => 'authwr',
+            'Email' => 'authorizeduserwithrestrictions@coreuserutilities.fr',
+            'Username' => 'authorizeduserwithrestrictions@coreuserutilities.fr',
+            'CommunityNickname' => 'authorizeduserwithrestrictions',
             'ProfileId' => profileId,
             'BypassedObjectRestrictions__c' => 'Account (Read)'
         });
+        insert new PermissionSetAssignment (PermissionSetId = coreUserPermissionId, AssigneeId = authorizedUserWithRestrictions.Id);
 
-        User userWithNoRestrictions = (User)TDF.createSObject('User', new Map<String,Object> {
-            'FirstName' => 'With No Restrictions',
-            'LastName' => 'User',
-            'Alias' => 'norest',
-            'Email' => 'userwithnorestrictions@coreuserutilities.fr',
-            'Username' => 'userwithnorestrictions@coreuserutilities.fr',
-            'CommunityNickname' => 'userwithnorestrictions',
+        User authorizedUserWithNoRestrictions = (User)TDF.createSObject('User', new Map<String,Object> {
+            'FirstName' => 'Authorized User',
+            'LastName' => 'With No Restrictions',
+            'Alias' => 'authwnr',
+            'Email' => 'authorizeduserwithnorestrictions@coreuserutilities.fr',
+            'Username' => 'authorizeduserwithnorestrictions@coreuserutilities.fr',
+            'CommunityNickname' => 'authorizeduserwithnorestrictions',
             'ProfileId' => profileId
+        });
+        insert new PermissionSetAssignment (PermissionSetId = coreUserPermissionId, AssigneeId = authorizedUserWithNoRestrictions.Id);
+
+        User unauthorizedUserWithRestrictions = (User)TDF.createSObject('User', new Map<String,Object> {
+            'FirstName' => 'Unauthorized User',
+            'LastName' => 'With Restrictions',
+            'Alias' => 'unauth',
+            'Email' => 'unauthorizeduserwithrestrictions@coreuserutilities.fr',
+            'Username' => 'unauthorizeduserwithrestrictions@coreuserutilities.fr',
+            'CommunityNickname' => 'unauthorizeduserwithrestrictions',
+            'ProfileId' => profileId,
+            'BypassedObjectRestrictions__c' => 'Account (Read)'
         });
     }
 
@@ -62,13 +54,12 @@ private class Core_UserUtilities_Test {
      */
     @IsTest
     private static void getUserBypassedObjectRestrictionsById_TestSuccessWithRestrictions() {
-        User authorizedUser = [SELECT Id FROM User WHERE Username = 'authorizeduser@coreuserutilities.fr' LIMIT 1];
-        User userWithRestrictions = [SELECT Id FROM User WHERE Username = 'userwithrestrictions@coreuserutilities.fr' LIMIT 1];
+        User authorizedUserWithRestrictions = [SELECT Id FROM User WHERE Username = 'authorizeduserwithrestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
         Test.startTest();
-        System.runAs(authorizedUser) {
-            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithRestrictions.Id);
+        System.runAs(authorizedUserWithRestrictions) {
+            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(authorizedUserWithRestrictions.Id);
         }
         Test.stopTest();
 
@@ -80,13 +71,12 @@ private class Core_UserUtilities_Test {
      */
     @IsTest
     private static void getUserBypassedObjectRestrictionsById_TestSuccessWithNoRestrictions() {
-        User authorizedUser = [SELECT Id FROM User WHERE Username = 'authorizeduser@coreuserutilities.fr' LIMIT 1];
-        User userWithNoRestrictions = [SELECT Id FROM User WHERE Username = 'userwithnorestrictions@coreuserutilities.fr' LIMIT 1];
+        User authorizedUserWithNoRestrictions = [SELECT Id FROM User WHERE Username = 'authorizeduserwithnorestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
         Test.startTest();
-        System.runAs(authorizedUser) {
-            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithNoRestrictions.Id);
+        System.runAs(authorizedUserWithNoRestrictions) {
+            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(authorizedUserWithNoRestrictions.Id);
         }
         Test.stopTest();
 
@@ -98,13 +88,12 @@ private class Core_UserUtilities_Test {
      */
     @IsTest
     private static void getUserBypassedObjectRestrictionsById_TestError() {
-        User unauthorizedUser = [SELECT Id FROM User WHERE Username = 'unauthorizeduser@coreuserutilities.fr' LIMIT 1];
-        User userWithRestrictions = [SELECT Id FROM User WHERE Username = 'userwithrestrictions@coreuserutilities.fr' LIMIT 1];
+        User unauthorizedUserWithRestrictions = [SELECT Id FROM User WHERE Username = 'unauthorizeduserwithrestrictions@coreuserutilities.fr' LIMIT 1];
 
         String userBypassedObjectRestrictions;
         Test.startTest();
-        System.runAs(unauthorizedUser) {
-            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(userWithRestrictions.Id);
+        System.runAs(unauthorizedUserWithRestrictions) {
+            userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(unauthorizedUserWithRestrictions.Id);
         }
         Test.stopTest();
 
