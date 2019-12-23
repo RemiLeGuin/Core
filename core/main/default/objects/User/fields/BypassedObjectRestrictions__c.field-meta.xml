@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>BypassedObjectRestrictions__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR</complianceGroup>
     <description>Bypasses object restrictions on the current user&#39;s profile. Useful for site guest users who cannot edit or delete some of the standard objects. Ignores CRUD enforcement in Apex such as Schema.SObjectType.Case.isUpdateable()</description>
     <externalId>false</externalId>
     <label>Bypassed Object Restrictions</label>
     <required>false</required>
+    <securityClassification>Internal</securityClassification>
     <trackFeedHistory>false</trackFeedHistory>
     <type>MultiselectPicklist</type>
     <valueSet>
