@@ -1,8 +1,6 @@
 trigger VehicleBeforeInsert on Vehicle__c (before insert) {
     String userBypassedObjectRestrictions = Core_UserUtilities.getUserBypassedObjectRestrictionsById(System.UserInfo.getUserId());
-    if (Schema.SObjectType.Vehicle__c.isCreateable()
-        || (!String.isBlank(userBypassedObjectRestrictions)
-            && userBypassedObjectRestrictions.contains('Vehicle (Create)'))) {
+    if (Schema.SObjectType.Vehicle__c.isCreateable()) {
         Caller.callHandlers('Vehicle__c', 'before', 'insert');
     }
     else {
