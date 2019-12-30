@@ -134,6 +134,26 @@
                 <default>false</default>
                 <label>Opportunity (Delete)</label>
             </value>
+            <value>
+                <fullName>Vehicle (Read)</fullName>
+                <default>false</default>
+                <label>Vehicle (Read)</label>
+            </value>
+            <value>
+                <fullName>Vehicle (Create)</fullName>
+                <default>false</default>
+                <label>Vehicle (Create)</label>
+            </value>
+            <value>
+                <fullName>Vehicle (Edit)</fullName>
+                <default>false</default>
+                <label>Vehicle (Edit)</label>
+            </value>
+            <value>
+                <fullName>Vehicle (Delete)</fullName>
+                <default>false</default>
+                <label>Vehicle (Delete)</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
     <visibleLines>4</visibleLines>

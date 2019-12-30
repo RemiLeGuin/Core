@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Engine__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR</complianceGroup>
+    <description>Fuel or type of energy for the vehicle.</description>
+    <externalId>false</externalId>
+    <label>Engine</label>
+    <required>true</required>
+    <securityClassification>Internal</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Gasoline</fullName>
+                <default>false</default>
+                <label>Gasoline</label>
+            </value>
+            <value>
+                <fullName>Diesel</fullName>
+                <default>false</default>
+                <label>Diesel</label>
+            </value>
+            <value>
+                <fullName>Electric</fullName>
+                <default>false</default>
+                <label>Electric</label>
+            </value>
+            <value>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+                <label>Hybrid</label>
+            </value>
+            <value>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+                <label>Ethanol</label>
+            </value>
+            <value>
+                <fullName>Hydrogen</fullName>
+                <default>false</default>
+                <label>Hydrogen</label>
+            </value>
+            <value>
+                <fullName>Propane</fullName>
+                <default>false</default>
+                <label>Propane</label>
+            </value>
+            <value>
+                <fullName>Biodiesel</fullName>
+                <default>false</default>
+                <label>Biodiesel</label>
+            </value>
+            <value>
+                <fullName>Compressed Natural Gas (CNG)</fullName>
+                <default>false</default>
+                <label>Compressed Natural Gas (CNG)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

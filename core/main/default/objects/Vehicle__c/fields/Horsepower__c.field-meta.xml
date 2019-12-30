@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Products__c</fullName>
+    <fullName>Horsepower__c</fullName>
     <businessStatus>Active</businessStatus>
     <complianceGroup>GDPR</complianceGroup>
-    <description>Products for which the account has subscribed a contract.</description>
+    <description>Vehicle&#39;s metric horsepower.</description>
     <externalId>false</externalId>
-    <label>Products</label>
+    <inlineHelpText>PS</inlineHelpText>
+    <label>Horsepower</label>
+    <precision>3</precision>
     <required>false</required>
+    <scale>0</scale>
     <securityClassification>Internal</securityClassification>
-    <trackFeedHistory>false</trackFeedHistory>
-    <type>TextArea</type>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>

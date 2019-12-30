@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Products__c</fullName>
+    <fullName>Siren__c</fullName>
     <businessStatus>Active</businessStatus>
+    <caseSensitive>false</caseSensitive>
     <complianceGroup>GDPR</complianceGroup>
-    <description>Products for which the account has subscribed a contract.</description>
-    <externalId>false</externalId>
-    <label>Products</label>
+    <description>Company&#39;s Siren number.</description>
+    <externalId>true</externalId>
+    <label>Siren</label>
+    <length>11</length>
     <required>false</required>
     <securityClassification>Internal</securityClassification>
     <trackFeedHistory>false</trackFeedHistory>
-    <type>TextArea</type>
+    <type>Text</type>
+    <unique>true</unique>
 </CustomField>

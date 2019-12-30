@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Products__c</fullName>
+    <fullName>CO2Emission__c</fullName>
     <businessStatus>Active</businessStatus>
     <complianceGroup>GDPR</complianceGroup>
-    <description>Products for which the account has subscribed a contract.</description>
+    <description>Vehicle&#39;s CO2 emission in g/km</description>
     <externalId>false</externalId>
-    <label>Products</label>
+    <inlineHelpText>g/km</inlineHelpText>
+    <label>CO2 Emission</label>
+    <precision>6</precision>
     <required>false</required>
+    <scale>3</scale>
     <securityClassification>Internal</securityClassification>
-    <trackFeedHistory>false</trackFeedHistory>
-    <type>TextArea</type>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>
