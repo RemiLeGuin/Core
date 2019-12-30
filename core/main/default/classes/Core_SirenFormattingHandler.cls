@@ -10,7 +10,6 @@ public with sharing class Core_SirenFormattingHandler implements Callable {
      * @param accounts A list of accounts.
      * @return A message stating the method execution.
      */
-    @TestVisible
     private static String formatSiren(List<Account> accounts, Map<Id, Account> oldAccountsMap) {
         if (Schema.SObjectType.Account.Fields.Siren__c.isUpdateable()) {
             for (Account acc : accounts) {
