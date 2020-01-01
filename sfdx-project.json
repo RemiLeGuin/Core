@@ -12,7 +12,7 @@
                 },
                 {
                     "package": "Trigger Dependency Injection (TDI)",
-                    "versionNumber": "1.0.0.LATEST"
+                    "versionNumber": "1.1.0.LATEST"
                 }
             ]
         }
@@ -21,7 +21,7 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "47.0",
     "packageAliases": {
-        "TDF": "04t1n0000021jWVAAY",
+        "TDF": "04t1n000001YV7nAAG",
         "Trigger Dependency Injection (TDI)": "0Ho3X000000KyjQSAS",
         "Core": "0Ho3X000000KyjVSAS",
         "Core@0.1.0-1": "04t3X000001FDQhQAO",
@@ -34,6 +34,7 @@
         "Core@0.3.0-6": "04t3X000001Hb1cQAC",
         "Core@0.3.0-7": "04t3X000001Hb1rQAC",
         "Core@0.3.0-8": "04t3X000001Hb6XQAS",
-        "Core@0.3.0-9": "04t3X000001Hb6cQAC"
+        "Core@0.3.0-9": "04t3X000001Hb6cQAC",
+        "Core@0.4.0-1": "04t3X000001Hb97QAC"
     }
 }
