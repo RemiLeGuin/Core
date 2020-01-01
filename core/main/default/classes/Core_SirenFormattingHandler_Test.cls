@@ -1,7 +1,7 @@
 /**
  * @author Rémi Le Guin
  * @date 20/12/2019
- * @description Test class for the handler class for the form response sending on case creation whithin the Service package.
+ * @description Test class for the handler class for the Siren number formatting.
  */
 @IsTest
 private class Core_SirenFormattingHandler_Test {

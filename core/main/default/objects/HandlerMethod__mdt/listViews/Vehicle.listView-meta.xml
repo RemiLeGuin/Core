@@ -15,7 +15,7 @@
     <filters>
         <field>CallingTrigger__c</field>
         <operation>equals</operation>
-        <value>Vehicle</value>
+        <value>Vehicle__c</value>
     </filters>
     <label>Vehicle</label>
 </ListView>

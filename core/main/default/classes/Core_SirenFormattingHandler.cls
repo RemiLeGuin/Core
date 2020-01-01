@@ -8,17 +8,18 @@ public with sharing class Core_SirenFormattingHandler implements Callable {
     /**
      * @description Format accounts' Siren number with no whitespaces or dashes.
      * @param accounts A list of accounts.
+     * @param oldAccountsMap A map of accounts in their previous version.
      * @return A message stating the method execution.
      */
     private static String formatSiren(List<Account> accounts, Map<Id, Account> oldAccountsMap) {
         if (Schema.SObjectType.Account.Fields.Siren__c.isUpdateable()) {
             for (Account acc : accounts) {
-                if (!String.isBlank(acc.Siren__c)
+                if (String.isNotBlank(acc.Siren__c)
                     && (oldAccountsMap == null
                         || (oldAccountsMap != null
                             && oldAccountsMap.get(acc.Id) != null
                             && acc.Siren__c != oldAccountsMap.get(acc.Id).Siren__c))) {
-                    acc.Siren__c = acc.Siren__c.remove('-').deleteWhitespace();
+                    acc.Siren__c = acc.Siren__c.replaceAll('[^0-9]', '');
                 }
             }
         }

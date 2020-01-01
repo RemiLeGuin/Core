@@ -5,7 +5,7 @@ trigger VehicleBeforeUpdate on Vehicle__c (before update) {
     }
     else {
         for (SObject record : Trigger.new) {
-            record.addError(Label.NotAllowedToEdit + ' ' + Schema.SObjectType.Vehicle__c.getLabelPlural());
+            record.addError(Label.Core_NotAllowedToEdit + ' ' + Schema.SObjectType.Vehicle__c.getLabelPlural());
         }
     }
 }

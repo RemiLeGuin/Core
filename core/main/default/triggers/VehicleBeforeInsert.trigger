@@ -5,7 +5,7 @@ trigger VehicleBeforeInsert on Vehicle__c (before insert) {
     }
     else {
         for (SObject record : Trigger.new) {
-            record.addError(Label.NotAllowedToCreate + ' ' + Schema.SObjectType.Vehicle__c.getLabelPlural());
+            record.addError(Label.Core_NotAllowedToCreate + ' ' + Schema.SObjectType.Vehicle__c.getLabelPlural());
         }
     }
 }

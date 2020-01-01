@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
-        <fullName>NotAllowedToCreate</fullName>
+        <fullName>Core_NotAllowedToCreate</fullName>
         <categories>Error message</categories>
         <language>en_US</language>
         <protected>true</protected>
@@ -9,11 +9,19 @@
         <value>You are not allowed to create</value>
     </labels>
     <labels>
-        <fullName>NotAllowedToEdit</fullName>
+        <fullName>Core_NotAllowedToEdit</fullName>
         <categories>Error message</categories>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>You are not allowed to edit</shortDescription>
         <value>You are not allowed to edit</value>
+    </labels>
+    <labels>
+        <fullName>Core_VehicleRegistrationNumberFormatError</fullName>
+        <categories>Error message</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Vehicle registration number format error</shortDescription>
+        <value>Please inform a number with the following format: AB-123-CD</value>
     </labels>
 </CustomLabels>

@@ -1,7 +1,7 @@
 /**
  * @author Rémi Le Guin
  * @date 20/11/2019
- * @description Utility class for the User standard object whithin the Core package.
+ * @description Utility class for the User standard object within the Core package.
  */
 public with sharing class Core_UserUtilities {
 
@@ -14,7 +14,7 @@ public with sharing class Core_UserUtilities {
         if (Schema.SObjectType.User.isAccessible()
             && User.BypassedObjectRestrictions__c.getDescribe().isAccessible()) {
             User u = [SELECT BypassedObjectRestrictions__c FROM User WHERE Id = :userId LIMIT 1];
-            if (u != null && !String.isBlank(u.BypassedObjectRestrictions__c)) {
+            if (u != null && String.isNotBlank(u.BypassedObjectRestrictions__c)) {
                 return u.BypassedObjectRestrictions__c;
             }
         }

@@ -1,7 +1,7 @@
 /**
  * @author Rémi Le Guin
  * @date 03/12/2019
- * @description Test class for the utility class for the User standard object whithin the Core package.
+ * @description Test class for the utility class for the User standard object within the Core package.
  */
 @IsTest
 private class Core_UserUtilities_Test {
