@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>SirenLengthEquals9</fullName>
+    <fullName>Core_SirenLengthEquals9</fullName>
     <active>true</active>
-    <description>The number of characters in a Siren number should be 9.</description>
+    <description>The number of characters in a Siren number should be 9 and only digits.</description>
     <errorConditionFormula>AND (
 				ISCHANGED(Siren__c),
 				NOT(ISNULL(Siren__c)),

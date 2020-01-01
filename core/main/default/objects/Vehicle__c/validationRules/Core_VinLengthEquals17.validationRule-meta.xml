@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Core_VinLengthEquals17</fullName>
+    <active>true</active>
+    <description>The number of characters in a Vehicle Identification Number (VIN) should be 17.</description>
+    <errorConditionFormula>AND (
+				ISCHANGED(VIN__c),
+				NOT(ISNULL(VIN__c)),
+				LEN(VIN__c) &lt;&gt; 17
+)</errorConditionFormula>
+    <errorDisplayField>VIN__c</errorDisplayField>
+    <errorMessage>VIN should have 17 characters.</errorMessage>
+</ValidationRule>

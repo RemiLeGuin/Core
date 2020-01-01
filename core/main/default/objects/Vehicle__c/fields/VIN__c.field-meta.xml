@@ -6,6 +6,7 @@
     <complianceGroup>GDPR</complianceGroup>
     <description>Vehicle Identification Number.</description>
     <externalId>true</externalId>
+    <inlineHelpText>Vehicle Identification Number</inlineHelpText>
     <label>VIN</label>
     <length>19</length>
     <required>true</required>

@@ -27,21 +27,21 @@ private class Core_SirenFormattingHandler_Test {
 
         System.runAs(authorizedUser) {
             List<Account> accounts = new List<Account> ();
-            for (Integer i = 0; i <= 75; i++) {
+            for (Integer i = 0; i < 75; i++) {
                 String index = String.valueOf(i).leftPad(3, '0');
                 accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                     'Name' => 'Updated' + index,
                     'Siren__c' => '000-111-' + index
                 }, false));
             }
-            for (Integer i = 76; i <= 150; i++) {
+            for (Integer i = 75; i < 150; i++) {
                 String index = String.valueOf(i).leftPad(3, '0');
                 accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                     'Name' => 'Updated' + index,
                     'Siren__c' => '000 111 ' + index
                 }, false));
             }
-            for (Integer i = 151; i <= 225; i++) {
+            for (Integer i = 150; i < 225; i++) {
                 String index = String.valueOf(i).leftPad(3, '0');
                 accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                     'Name' => 'Updated' + index,
@@ -58,21 +58,21 @@ private class Core_SirenFormattingHandler_Test {
     @IsTest
     private static void formatSiren_InsertTest() {
         List<Account> accounts = new List<Account> ();
-        for (Integer i = 0; i <= 75; i++) {
+        for (Integer i = 0; i < 75; i++) {
             String index = String.valueOf(i).leftPad(3, '0');
             accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                 'Name' => 'Inserted' + index,
                 'Siren__c' => '000-000-' + index
             }, false));
         }
-        for (Integer i = 76; i <= 150; i++) {
+        for (Integer i = 75; i < 150; i++) {
             String index = String.valueOf(i).leftPad(3, '0');
             accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                 'Name' => 'Inserted' + index,
                 'Siren__c' => '000 000 ' + index
             }, false));
         }
-        for (Integer i = 151; i <= 225; i++) {
+        for (Integer i = 150; i < 225; i++) {
             String index = String.valueOf(i).leftPad(3, '0');
             accounts.add((Account)TDF.createSObject('Account', new Map<String, Object> {
                 'Name' => 'Inserted' + index,
@@ -89,7 +89,7 @@ private class Core_SirenFormattingHandler_Test {
         Test.stopTest();
 
         accounts = [SELECT Siren__c FROM Account WHERE Name LIKE 'Inserted%' ORDER BY Siren__c];
-        for (Integer i = 1; i <= 225; i++) {
+        for (Integer i = 0; i < 225; i++) {
             String index = String.valueOf(i).leftPad(3, '0');
             System.assertEquals('000000' + index, accounts[i].Siren__c, 'Siren is not formatted');
         }
@@ -114,7 +114,7 @@ private class Core_SirenFormattingHandler_Test {
         Test.stopTest();
 
         accounts = [SELECT Siren__c FROM Account WHERE Name LIKE 'Updated%' ORDER BY Siren__c];
-        for (Integer i = 1; i <= 225; i++) {
+        for (Integer i = 0; i < 225; i++) {
             String index = String.valueOf(i).leftPad(3, '0');
             System.assertEquals('111111' + index, accounts[i].Siren__c, 'Siren is not formatted');
         }
